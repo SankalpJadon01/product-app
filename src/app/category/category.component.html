@@ -1,0 +1,46 @@
+<form (ngSubmit)="search()">
+  <label>Category :</label>&nbsp;
+
+  <input
+    name="category"
+    [(ngModel)]="category"
+    placeholder="Category"
+    required
+    list="category"
+  />
+
+  <datalist id="category">
+    <option *ngFor="let p of products" [value]="p"></option>
+  </datalist>
+  &nbsp;&nbsp;
+
+  <button class="btn btn-success" type="submit">Search Product</button>
+</form>
+
+<hr />
+
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th>Product Code</th>
+
+      <th>Product Name</th>
+
+      <th>Category</th>
+
+      <th>Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{ p.code }}</td>
+
+      <td>{{ p.name }}</td>
+
+      <td>{{ p.category }}</td>
+
+      <td>{{ p.price }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,42 @@
+<form (ngSubmit)="search()">
+  <label>Min Price:</label>&nbsp;
+
+  <input name="min" [(ngModel)]="min" placeholder="Min Price" />
+  <datalist id="min">
+    <option *ngFor="let p of products" [value]="p"></option>
+  </datalist>
+  &nbsp;&nbsp;
+  <label>Max Price:</label>
+  <input name="max" [(ngModel)]="max" placeholder="Max Price" />
+  <datalist id="max">
+    <option *ngFor="let p of products" [value]="p"></option>
+  </datalist>
+  &nbsp;&nbsp;
+  <button class="btn btn-success" type="submit">Search Product</button>
+</form>
+<hr />
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th>Product Code</th>
+
+      <th>Product Name</th>
+
+      <th>Category</th>
+
+      <th>Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{ p.code }}</td>
+
+      <td>{{ p.name }}</td>
+
+      <td>{{ p.category }}</td>
+
+      <td>{{ p.price }}</td>
+    </tr>
+  </tbody>
+</table>
